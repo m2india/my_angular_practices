@@ -1,0 +1,31 @@
+<!-- <p>users works!</p>
+
+<div>
+     <a routerLink="/categories">Go To Categories</a>
+    <button (click)="onCategoriesClick()">Go To Categories</button>
+</div> -->
+
+<ul class="nav flex-column">
+    <li class="nav-item">
+        <a 
+            [routerLink]="['/users',1,'apple']" 
+            [queryParams]="{page:1, search:'apple'}"
+            class="nav-link"
+            >
+            Get apple details
+        </a>
+    </li>
+    <li class="nav-item">
+        <a 
+        [routerLink]="['/users',2,'banana']" 
+        [queryParams]="{page:1, search:'banana'}"
+        class="nav-link">Get banana details</a>
+    </li>
+    <li class="nav-item">
+        <a [routerLink]="['/users',3,'cat']" [queryParams]="{page:1, search:'cat'}" class="nav-link">Get cat details</a>
+    </li>
+</ul>
+
+<div>
+    <router-outlet></router-outlet>
+</div>

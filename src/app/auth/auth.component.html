@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <div class="alert alert-danger my-4" *ngIf="error">
+                {{error}}
+            </div>
+            <div *ngIf="isLoading" class="text-center my-4">
+                <app-loading-spinner></app-loading-spinner>
+            </div>
+            <form #authForm="ngForm" (ngSubmit)="onFormSubmit(authForm)">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control"  ngModel name="email" required email #email="ngModel" />
+                    <div class="help-text" *ngIf="email.touched && !email.valid">
+                        <div *ngIf="email.errors.required">Email is required</div>
+                        <div *ngIf="email.errors.email">Invalid Email</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" ngModel name="password" required minlength="6" #password="ngModel" />
+                    <div class="help-text" *ngIf="password.touched && !password.valid">
+                        <!-- <div>{{ getPasswordErrors(password) }}</div> -->
+                        <div *ngIf="password.errors.required">Password is required</div>
+                        <div *ngIf="password.errors.minlength">Password should be 6 characters</div>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-primary" [disabled]="!authForm.valid">{{ isLoginMode ? "Login" : "Signup" }}</button> |
+                    <button type="button" class="btn btn-primary" (click)="onSwitchMode()"> Switch to {{ isLoginMode ? "Signup" : "Login" }}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <button (click)="onAddUser()">Add User</button>
+        </div>
+    </div>
+    <div class="my-2">
+        {{appStatus | async}}
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <input type="text" class="form-contol" [(ngModel)] = "filterString" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="my-3" *ngFor="let user of users | filterpipes:filterString">
+                <div>
+                    Username : {{user.name }}
+                    <!-- | shorten:2 -->
+                </div>
+                <div>
+                    Joined Date : {{user.joinedDate |date:'fullDate'}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

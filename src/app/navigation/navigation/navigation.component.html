@@ -1,0 +1,20 @@
+<!-- <button (click)="onLoginClick()">Login</button>
+<button (click)="onLogoutClick()">Logout</button> -->
+
+<ul class="nav flex-column nav-pills">
+    <li class="nav-item" *ngIf="!isAuthenticated"><a class="nav-link" routerLink="/authComp" routerLinkActive="active" [routerLinkActiveOptions] ="{exact : true}">Authenticated</a></li>
+
+    <li class="nav-item" *ngIf="isAuthenticated"><a href="#"  class="nav-link" routerLink="/authComp" routerLinkActive="active" [routerLinkActiveOptions] ="{exact : true}"(click)="onLogout($event)">Logout</a></li>
+    
+    <div *ngIf="isAuthenticated">
+        <li class="nav-item ">
+            <a class="nav-link active" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions] ="{exact : true}" >Home</a>
+        </li>
+        <li class="nav-item"><a class="nav-link" routerLink="/users" routerLinkActive="active" [routerLinkActiveOptions] ="{exact : true}">Users</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/categories" routerLinkActive="active" [routerLinkActiveOptions] ="{exact : true}">Categories</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/temform" routerLinkActive="active" [routerLinkActiveOptions] ="{exact : true}">Template Form</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/reactiveForm" routerLinkActive="active" [routerLinkActiveOptions] ="{exact : true}">Reactive Form</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/filterPipes" routerLinkActive="active" [routerLinkActiveOptions] ="{exact : true}">Filter Pipes</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/post" routerLinkActive="active" [routerLinkActiveOptions] ="{exact : true}">post</a></li>
+    </div>
+</ul>
